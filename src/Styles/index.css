@@ -1,0 +1,22 @@
+.paperstyle{
+    padding: 20px;
+    height: 70vh;
+    width: 280px;
+    margin: 20px auto;
+}
+.flexbox {
+    display: flex;
+}
+.uno {
+    flex: 2 1 auto;
+}
+.dos {
+    flex: 1 1 auto;
+    color: rgb(255, 255, 255);
+}
+.tres {
+    flex: 1 1 auto;
+}
+h2{
+    text-align: center;
+}
