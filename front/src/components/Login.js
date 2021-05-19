@@ -46,7 +46,7 @@ const Login = () => {
                     </Typography> 
 
                     <Typography>
-                       <Link href="<Registrar/>">
+                       <Link href="/registro">
                         Registrar una nueva cuenta
                        </Link>
                     </Typography> 

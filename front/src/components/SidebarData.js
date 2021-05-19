@@ -56,6 +56,7 @@ export const SidebarData = [
     title: 'Products',
     path: '/products',
     icon: <FaIcons.FaCartPlus />
+    
   },
   {
     title: 'Team',
@@ -82,10 +83,5 @@ export const SidebarData = [
         icon: <IoIcons.IoIosPaper />
       }
     ]
-  },
-  {
-    title: 'Support',
-    path: '/support',
-    icon: <IoIcons.IoMdHelpCircle />
   }
 ];
