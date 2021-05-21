@@ -4,20 +4,25 @@ const server = require("http").Server(app);
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const router = require("./network/router");
+// const config = require('./config')
+const {port, dev_host, db_connection} = require('./config')
+const db = require('./db')
 
-const config = {
-	port: process.env.PORT || 8080,
-	ip: "192.168.0.11",
-};
 
-app.set("port", config.port);
+
+app.set('port', process.env.PORT || port);
+db(db_connection);
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors([{origin:'*', credentials:true}]));
 
 server.listen(app.get("port"), () => {
-	console.log(`La app está en -> http://${config.ip}:${config.port}`);
+	console.log(`La app está en ->${dev_host}`);
 });
 
 app.get("/", (req, res) => {
-	res.send("Perra hpta");
+	res.send({res:"Perra hpta"});
 });
+
+router(app)
+
+process.on('uncaughtException', (e)=>{console.log('error', e);})
