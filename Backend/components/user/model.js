@@ -22,10 +22,6 @@ const _Schema = new Schema({
         type: String,
         required: false
     },
-    push_notifactions_token:{
-        type: String,
-        required: false
-    }
 })
 
 const model = mongoose.model('User', _Schema)

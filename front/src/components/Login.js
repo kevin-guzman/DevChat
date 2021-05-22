@@ -3,9 +3,18 @@ import {Grid,Paper,Avatar, TextField, FormControlLabel, Checkbox, Button, Typogr
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import '../Styles/index.css'
 import Registrar from './Registrar';
+import {User} from '../api/querys'
+import useForm from '../hooks/useForm'
 
 
 const Login = () => {
+    const initialValues = {name:'', password:''}
+    const {fields, setForm} = useForm({initialValues})
+    const onLoginClick = async() => {
+        const {name, password} = fields
+        const {data, status} = await User().login(name, password)
+        console.log('Data y status, ', data, status);
+    }
     return (
         <Grid>
             <Paper elevation={10} className='paperstyle'>
@@ -23,8 +32,8 @@ const Login = () => {
                     </div>
                     <h2>Iniciar sesion</h2>
 
-                    <TextField  label="Nombre Usuario" placeholder='ingrese usuario' fullWidth required />
-                    <TextField  label="Contraseña" placeholder='ingrese contraseña'type='password'fullWidth required />
+                    <TextField onChange={({target:{value}})=>setForm('name', value)} label="Nombre Usuario" placeholder='ingrese usuario' fullWidth required />
+                    <TextField onChange={({target:{value}})=>setForm('password', value)} label="Contraseña" placeholder='ingrese contraseña'type='password'fullWidth required />
                     
 
                     <FormControlLabel 
@@ -35,7 +44,7 @@ const Login = () => {
                     }
                     label="recordar"
                     />
-                    <Button type='submit'  fullWidth variant="contained" color="primary">
+                    <Button onClick={()=>onLoginClick()} type='submit'  fullWidth variant="contained" color="primary">
                         Ingresar
                     </Button>  
 

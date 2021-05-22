@@ -7,6 +7,7 @@ const upload = multer({dest:'public/files/'})
 const AuthMiddleware = require('../../middlewares/Authentication')
 
 router.post('/auth/singin', (req, res)=>{
+    console.log('re->',req.body, '->', req.body.name, '->', req.body.password);
     controller.singIn(req.body.name, req.body.password)
     .then(resp => response.success(req, res, resp, 200))
     .catch(err => response.success(req, res, err, 220, err))
@@ -26,8 +27,8 @@ router.get('/:id', AuthMiddleware('customer:read'),(req, res)=>{
 })
 
 router.post('/auth/singup', upload.single('file'),(req, res)=>{
-    const {name, password, password2, email, photo, push_notifactions_token} = req.body
-    controller.singUp(name, password, password2, email, photo, push_notifactions_token)
+    const {name, password, password2, email, photo} = req.body
+    controller.singUp(name, password, password2, email, photo)
     .then(({data, status})=> response.success(req, res, data, status))
     .catch(err => response.error(req, res, err, 500, err))
 })

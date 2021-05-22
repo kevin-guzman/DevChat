@@ -4,6 +4,7 @@ const response = require('../../network/response')
 const controller = require('./controller')
 const AuthMiddleware = require('../../middlewares/Authentication')
 
+// router.use('*', AuthMiddleware('customer:read'))
 router.post('/', AuthMiddleware('customer:read'), (req, res)=>{
     const _users = [req.id, ...req.body.users]
     controller.addChat(_users)
