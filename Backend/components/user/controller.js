@@ -19,7 +19,7 @@ function singIn(name, password){
                 resolve(getUserInfo(_id))
             })
         })
-        .catch(x =>  reject('Credenciales incorrectas catch'))
+        .catch(x =>  reject('Credenciales incorrectas'))
     })
 }
 

@@ -10,7 +10,7 @@ router.post('/auth/singin', (req, res)=>{
     console.log('re->',req.body, '->', req.body.name, '->', req.body.password);
     controller.singIn(req.body.name, req.body.password)
     .then(resp => response.success(req, res, resp, 200))
-    .catch(err => response.success(req, res, err, 220, err))
+    .catch(err => response.error(req, res, err, 401, err))
 })
 
 router.get('/', (req, res)=>{

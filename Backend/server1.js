@@ -11,12 +11,20 @@ const db = require('./db')
 
 
 // app.listen()
-// app.use(express.json())
-app.use(express.urlencoded({ extended: true,  }));
+app.use(express.json())
+// app.use(express.urlencoded({ extended: true,  }));
+app.use(cors([{origin:'*', credentials:true}]));
+
+app.all('*', function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With')
+  res.header('Access-Control-Allow-Headers', 'Content-Type')
+  next()
+})
+
 // app.use(express.json({strict:true}));
 app.set('port', process.env.PORT || port);
 db(db_connection);
-app.use(cors([{origin:'*', credentials:true}]));
 
 server.listen(port, () => {
 	console.log(`La app está en ->${dev_host}`);

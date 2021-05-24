@@ -18,26 +18,17 @@ export function User(iSmultipart = false) {
 						},
 					}
 				)
-			// await fetch(url + "/auth/singin.json", {
-			// 	body: JSON.stringify({ name: "re", password: "re" }),
-			// 	method: "POST",
-			// 	headers: {
-			// 		"Content-Type": "application/json",
-			// 		"Accept": "application/json",
-			// 	},
-			// })
 				.then((resp) => {
 					status = resp.status;
-					data = resp.data;
-					return resp;
+					data = resp.data
+					console.log('resp', resp);
 				})
-				// .then((resp) => resp.json())
-				// .then((resp) => {
-				// 	data = resp;
-				// })
-				.catch((err) => console.log("Error", err));
+				.catch((err) => {
+					err = err.response
+					data = err.data;
+					status= err.status
+				});
 			return { status, data };
-			// return await fetch(url+'/auth/singin', {body:JSON.stringify({name, password})})
 		},
 	};
 }
