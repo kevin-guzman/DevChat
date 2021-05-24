@@ -53,6 +53,7 @@ const Sidebar = () => {
           <NavIcon to='#'>
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
+          HOLASWENASNOCHES 
         </Nav>
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
@@ -65,6 +66,7 @@ const Sidebar = () => {
           </SidebarWrap>
         </SidebarNav>
         </IconContext.Provider>
+        
     </>
   );
 };

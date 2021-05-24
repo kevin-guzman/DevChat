@@ -5,15 +5,23 @@ import '../Styles/index.css'
 import Registrar from './Registrar';
 import {User} from '../api/querys'
 import useForm from '../hooks/useForm'
+import { useHistory } from "react-router-dom";
+
 
 
 const Login = () => {
+    const history = useHistory();
     const initialValues = {name:'', password:''}
     const {fields, setForm} = useForm({initialValues})
     const onLoginClick = async() => {
         const {name, password} = fields
         const {data, status} = await User().login(name, password)
         console.log('Data y status, ', data, status);
+        if (status ==200) {
+            history.push("/Team");
+          } else {
+            history.push("/Login");
+          }
     }
     return (
         <Grid>
