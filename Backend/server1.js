@@ -9,7 +9,6 @@ const router = require("./network/router");
 const {port, dev_host, db_connection} = require('./config')
 const db = require('./db')
 
-
 // app.listen()
 app.use(express.json())
 // app.use(express.urlencoded({ extended: true,  }));
