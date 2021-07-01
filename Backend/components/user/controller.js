@@ -14,7 +14,6 @@ function singIn(name, password){
         .then(resp => {
             const {_id, password:realPassword, token} = resp
             bcrypt.compare(password, realPassword, (err, result)=>{
-                console.log('resp, result', resp, result);
                 if (!result) {return reject('Crendenciales incorrectas')}
                 resolve(getUserInfo(_id))
             })

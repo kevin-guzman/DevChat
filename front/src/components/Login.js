@@ -6,10 +6,12 @@ import Registrar from './Registrar';
 import {User} from '../api/querys'
 import useForm from '../hooks/useForm'
 import { useHistory } from "react-router-dom";
+import useUser from '../hooks/useUser'
 
 
 
 const Login = () => {
+    const {logout, setUser, user} = useUser()
     const history = useHistory();
     const initialValues = {name:'', password:''}
     const {fields, setForm} = useForm({initialValues})
@@ -19,6 +21,7 @@ const Login = () => {
         console.log('Data y status, ', data, status);
         if (status ==200) {
             history.push("/Team");
+            setUser({...user, ...data})
           } else {
             history.push("/Login");
           }

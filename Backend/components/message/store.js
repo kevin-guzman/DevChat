@@ -17,6 +17,7 @@ function getMessages(filters={}){
     return new Promise((resolve, reject)=>{
         // let filter = filters?{user:filters}:{}
         // if (filters) filter = {user: filters}
+        console.log('filters', filters);
         Model.find(filters, {__v:0})
             .populate({path:'user', select:'-__v -token -password'})
             .exec((error, populated)=>{

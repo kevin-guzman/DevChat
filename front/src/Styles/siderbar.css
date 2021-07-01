@@ -18,14 +18,47 @@
     margin-left: 55px;
 }
 .views{
-    margin-top: 426px;
+    margin-top: 31px;
 }
 .style{
+    padding: 20px;
+    width: 890px;
+    margin: 50px auto;
+}
+.buttonE{
+    margin-top: 17px;
+}
+.style2{
     padding: 20px;
     height: 78vh;
     width: 890px;
     margin: 20px auto;
 }
-.buttonE{
-    margin-top: 17px;
+.style21{
+    padding: 6px;
+    height: 14vh;
+    margin-top: 30px;
+
 }
+.resultado{
+    padding-left: 200px;
+    height: 14vh;
+}
+.hora{
+    padding-left: 500px;
+    height: 14vh;
+}
+.paperstyle2{
+    padding-left: 605px;
+    width: 241px;
+    margin: 20px auto
+    
+}
+.Menuinit{
+    width: 406px;
+    margin: 44px auto;
+}
+.saline{
+top: 25px;
+}
+
